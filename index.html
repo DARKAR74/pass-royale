@@ -61,12 +61,13 @@
   <h2>🔥 LA ORDEN JEDI EXIGE UN PASS ROYALE 🔥</h2>
 
   <!-- Video insertado -->
-  <video width="640" height="360" autoplay loop playsinline >
-    <source src="loros girando alrededor de un tazón con música épica de fondo.mp4" type="video/mp4">
+  <video id="miVideo" width="640" height="360" autoplay loop playsinline muted>
+    <source src="loros girando alrededor de un tazón con música épica de fondo.mp4"" type="video/mp4">
     Tu navegador no soporta la etiqueta de video.
   </video>
 
   <script>
+    // Generar meteoritos de fuego
     function createMeteor() {
       const meteor = document.createElement("div");
       meteor.classList.add("meteor");
@@ -78,8 +79,15 @@
       setTimeout(() => meteor.remove(), 3000);
     }
 
-    // Generar meteoritos continuamente
+    // Crear meteoritos cada medio segundo
     setInterval(createMeteor, 500);
+
+    // Manejar el audio: autoplay forzado al hacer clic
+    const video = document.getElementById("miVideo");
+    document.body.addEventListener("click", () => {
+      video.muted = false; // activar sonido
+      video.play();        // asegurarse que siga reproduciéndose
+    });
   </script>
 </body>
 </html>
